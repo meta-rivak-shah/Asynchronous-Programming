@@ -1,0 +1,19 @@
+{% if post.post_type == 'HAPPY'%}
+    <span class="badge badge-pill badge-primary p-2">{{ post.post_type }}</span></p>
+{% endif %}
+
+{% if post.post_type == 'IN LOVE'%}
+    <span class="badge badge-pill badge-danger p-2">{{ post.post_type }}</span></p>
+{% endif %}
+
+{% if post.post_type == 'SAD'%}
+    <span class="badge badge-pill badge-warning p-2">{{ post.post_type }}</span></p>
+{% endif %}
+
+{% if post.post_type == 'NEW IDEA'%}
+    <span class="badge badge-pill badge-success p-2">{{ post.post_type }}</span></p>
+{% endif %}
+
+{% if post.post_type == 'JOKE'%}
+    <span class="badge badge-pill badge-info p-2">{{ post.post_type }}</span></p>
+{% endif %}

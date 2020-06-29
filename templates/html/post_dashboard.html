@@ -1,0 +1,44 @@
+{% extends "index.html" %}
+    {% block Content %}
+        <div class="continer-fluid" id="bg-image">
+            <div class="row">
+                 <div class="col-sm-12">
+                     {% include "UICommom/navbarwith_search.html" %}
+                 </div>
+            </div>
+            <div class="row mt-5" id="post-form">
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-6 post-form">
+                    <div class="post-form-heading">
+                        <p>Post Something here.....</p>
+                    </div>
+                    <form action="/dashboard/post" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                           <div class="post-form-container">
+                               <textarea name="post_text" placeholder="Something Right Here.....">{{ data.comment }}</textarea>
+                            </div>
+                            <div class="post-form-container">
+                               <input name="post_img" type="file" accept="application/jpg/jpeg"/>
+                            </div>
+                            <div class="post-form-container2">
+                                <select name="post_type">
+                                    <option value="" disabled {% if data.type == "" %} selected{% endif %}>Select Post Type</option>
+                                    <option value="HAPPY" {% if data.type == "HAPPY" %} selected {% endif %}>Happy</option>
+                                    <option value="SAD"  {% if data.type == "SAD" %} selected {% endif %}>Sad</option>
+                                    <option value="JOKE"  {% if data.type == "JOKE" %} selected {% endif %}>Joke</option>
+                                    <option value="NEW IDEA"  {% if data.type == "NEW IDEA" %} selected {% endif %}>New Idea</option>
+                                    <option value="IN LOVE"  {% if data.type == "IN LOVE" %} selected {% endif %}>In Love</option>
+                                </select>
+                            </div>
+                            <div class="post-form-container2">
+                                <button class="btn btn-primary btn-lg" type="submit">Post</button>
+                            </div>
+                    </form>
+                </div>
+                <div class="col-md-3">
+
+                </div>
+            </div>
+        </div>
+    {% endblock %}

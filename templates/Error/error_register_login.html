@@ -1,0 +1,38 @@
+ <div>
+    {% if data.form_error == False %}
+        <script>
+            $(document).ready(function() {
+                $("#first").hide();
+                $("#second").show();
+            });
+        </script>
+
+     {% elif data.success == True %}
+        <script>
+             $(document).ready(function() {
+                 showSuccessToastWithTitle("<small>{{main_message}}<br>{{extra_message}}</small>","Success","toast-bottom-left",)
+             })
+        </script>
+
+    {% elif  data.warning == True %}
+        <script>
+             $(document).ready(function() {
+                 showWarningToastWithTitle("<small>{{main_message}}<br>{{extra_message}}</small>","Warning","toast-bottom-left",)
+             })
+        </script>
+
+     {% elif data.error == True %}
+            <script>
+                $(document).ready(function() {
+                      showErrorToastWithTitle("<small>{{main_message}}<br>{{extra_message}}</small>","Error","toast-bottom-left",)
+                })
+            </script>
+     {% elif data.info == True %}
+            <script>
+                $(document).ready(function() {
+                      showInfoToastWithTitle("<small>{{main_message}}<br>{{extra_message}}</small>","Info","toast-bottom-left",)
+                })
+            </script>
+     {% endif %}
+
+   </div>
